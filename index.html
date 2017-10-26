@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Samsung Remote JS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=device-dpi">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/jpg" href="/images/samsung.jpg" />
+    <link href="/images/samsung.jpg" rel="apple-touch-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div style="max-width:400px;margin:0 auto 0;">
+            <h2>Samsung Remote</h2>
+            <br>
+            <p>A minimalist Samsung Smart TV remote on the web. Supports 2016 and newer Samsung Smart TVs.</p>
+            <div style="max-width:300px;margin:25px auto 25px;">
+                <input id="ip" type="text" class="form-control" placeholder="TV's Local IP Address" aria-label="TV's Local IP Address">
+                <button style="width:100%;margin-top:10px;" type="button" class="btn btn-primary" onclick="go()">Get Remote</button>
+            </div>
+            <h5>Instructions</h5>
+            <ol>
+                <li>Find your TV's IP address on your local network; try your router admin interface or the TV's network settings.</li>
+                <li>Enter the IP address in the box above and click <i>Get Remote</i>.</li>
+                <li>Done! Remember your TV must be turned on and connected to your network for this to work.</li>
+            </ol>
+            <h5>Advanced User</h5>
+            <ol>
+                <li>Prevent the TV's IP from changing. Add a DHCP reservation for your TV through your router's interface.</li>
+                <li>Save the remote to your phone's homescreen. On iOS open in Safari and click Share Icon -> Add to Home Screen. On Android open in Chrome and click Menu Icon -> Add to homescreen.</li>
+            </ol>
+            <h5>Caveats</h5>
+            <ul>
+                <li>Requires your TV to be connected to your home network.</li>
+                <li>You can't turn your TV on using this remote. This is a limitation at the TV's network hardware level.</li>
+            </ul>
+            <div class="disclaimer">
+                    <p><strong>Disclaimer</strong> This website is <strong>not</strong> owned, operated, or associated with Samsung or any other entities. This website is provided as is with no warranty. The developer cannot be held liable for any damage caused by using this website.</p>
+            </div>
+            <p class="footer">Made with &hearts; in ATL by <a href="https://twitter.com/shivpatel">Shiv</a>.</p>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        const go = () => {
+            window.location.href = `remote.html?ip=${document.getElementById('ip').value}`;
+        }
+      
+    </script>
+
+    <style>
+
+        body {
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: #25282d;
+            color: #676e79;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        input, textarea {
+            border-color: #4a525a !important;
+            background-color:#343a40 !important;
+            color: #FFF !important;
+        }
+
+        a, a:hover {
+            color: #676e79;
+            font-weight: 700;
+        }
+
+        h2 {
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 25px;
+        }
+
+        .btn-group.special {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .special .btn {
+            flex: 1
+        }
+
+        .disclaimer {
+            font-size: .6em;
+        }
+
+        .footer {
+            margin: 25px;
+            opacity: .5;
+            font-size: .75em;
+        }
+    </style>
+
+</body>
+
+</html>
