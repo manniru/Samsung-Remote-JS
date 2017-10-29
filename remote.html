@@ -16,28 +16,22 @@
 </head>
 
 <body>
-    <h2>Samsung Remote</h2>
-    <br>
-    <div class="btn-group special" role="group" aria-label="Basic example">
+    <div class="btn-group special" role="group" aria-label="Basic example" style="margin-bottom:25px;">
         <button type="button" class="btn btn-lg btn-danger" onclick="sendKey('KEY_POWER')">
             <i class="fa fa-power-off"></i>
         </button>
-        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_SOURCE')">
-            <i class="fa fa-television"></i>
-        </button>
-        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_MENU')">
-            <i class="fa fa-bars"></i>
-        </button>
-    </div>
-    <div class="btn-group special" role="group" aria-label="Basic example" style="margin-bottom:50px;">
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_HDMI')">
-            <i class="fa fa-apple"></i>
+            <strong>HDMI</strong>
         </button>
     </div>
     <div class="btn-group special" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_VOLDOWN')">-</button>
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_SOURCE')">
+            <i class="fa fa-television"></i>
+        </button>
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_UP')">&uarr;</button>
-        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_VOLUP')">+</button>
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_MENU')">
+            <i class="fa fa-bars"></i>
+        </button>
     </div>
     <div class="btn-group special" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_LEFT')">&larr;</button>
@@ -46,7 +40,7 @@
         </button>
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_RIGHT')">&rarr;</button>
     </div>
-    <div class="btn-group special" role="group" aria-label="Basic example">
+    <div class="btn-group special" role="group" aria-label="Basic example" style="margin-bottom:25px;">
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_RETURN')">
             <i class="fa fa-undo"></i>
         </button>
@@ -54,6 +48,14 @@
         <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_HOME')">
             <i class="fa fa-home"></i>
         </button>
+    </div>
+    <div class="btn-group special" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_VOLUP')"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_CHUP')"><strong>+</strong></button>
+    </div>
+    <div class="btn-group special" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_VOLDOWN')"><i class="fa fa-volume-down" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-lg btn-dark" onclick="sendKey('KEY_CHDOWN')"><strong>-</strong></button>
     </div>
     <p class="footer">Made with &hearts; in <a href="https://www.atlantaga.gov/">ATL</a> by <a href="http://shivspatel.com/">Shiv</a>.</p>
 
@@ -83,6 +85,7 @@
         let ws = null;
 
         const sendKey = async (key) => {
+            console.info(`Sending ${key} to TV`);
             const cmd = {
                 method: "ms.remote.control",
                 params: {
@@ -121,7 +124,6 @@
 
     <style>
         body {
-            margin-top: 50px;
             padding: 25px;
             text-align: center;
             background: #25282d;
@@ -135,14 +137,6 @@
             font-weight: 700;
         }
 
-        h2 {
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 1em;
-            margin-bottom: 25px;
-        }
-
         .btn-group.special {
             display: flex;
             margin-bottom: 10px;
@@ -150,6 +144,11 @@
 
         .special .btn {
             flex: 1
+        }
+        
+        .btn {
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
 
         .footer {
